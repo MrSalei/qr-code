@@ -24,8 +24,15 @@ func generateQRCode(from string: String) -> UIImage? {
     return nil
 }
 
+func verifyUrl(urlString: String?) -> Bool {
+    guard let urlString = urlString, let url = URL(string: urlString) else {
+        return false
+    }
+    return UIApplication.shared.canOpenURL(url)
+}
+
 class ViewController: UIViewController {
-    @IBOutlet weak var QRview: UIImageView!
+    @IBOutlet var QRview: UIImageView!
     @IBOutlet var Background: UIView!
     @IBOutlet weak var linkField: UITextField!
     @IBOutlet weak var warningField: UITextField!
@@ -33,15 +40,15 @@ class ViewController: UIViewController {
         exit(0)
     }
     @IBAction func createButton(_ sender: Any) {
-        if let str = linkField.text, !str.isEmpty {
+        if verifyUrl(urlString: linkField.text) {
+            QRview.image = generateQRCode(from: linkField.text!)
             QRview.isHidden = false
             warningField.text = "Enjoy your qr-code!"
             warningField.textColor = .green
-            QRview.image = generateQRCode(from: str)
         }
         else {
             QRview.isHidden = true
-            warningField.text = "You haven't written any link yet!"
+            warningField.text = "Something is wrong with your link!"
             warningField.textColor = .red
         }
     }
