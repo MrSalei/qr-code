@@ -32,6 +32,7 @@ func verifyUrl(urlString: String?) -> Bool {
 }
 
 class ViewController: UIViewController {
+    @IBOutlet weak var speechLabel: UILabel!
     @IBOutlet weak var QRview: UIImageView!
     @IBOutlet var Background: UIView!
     @IBOutlet weak var linkField: UITextField!
@@ -42,14 +43,21 @@ class ViewController: UIViewController {
     @IBAction func createButton(_ sender: Any) {
         if !linkField.isEnabled {}
         else if verifyUrl(urlString: linkField.text) {
+            let button = sender as? UIButton
             QRview.image = generateQRCode(from: linkField.text!)
             warningField.text = "Enjoy your qr-code!"
             warningField.textColor = .green
+            warningField.isHidden = false
             linkField.isEnabled = false
+            linkField.isHidden = true
+            speechLabel.isHidden = true
+            button?.isEnabled = false
+            button?.isHidden = true
         }
         else {
             warningField.text = "Something is wrong with your link!"
             warningField.textColor = .red
+            warningField.isHidden = false
         }
     }
     

@@ -42,7 +42,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uRL-uP-m4y">
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uRL-uP-m4y">
                                 <rect key="frame" x="57" y="625" width="300" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -65,6 +65,7 @@
                         <outlet property="Background" destination="8bC-Xf-vdC" id="mtg-p7-dZx"/>
                         <outlet property="QRview" destination="W7P-BB-yZX" id="iMB-Qc-AIv"/>
                         <outlet property="linkField" destination="VoL-6x-4ot" id="BXe-FK-7Oi"/>
+                        <outlet property="speechLabel" destination="OQN-LZ-gi3" id="BfJ-6m-oFl"/>
                         <outlet property="warningField" destination="uRL-uP-m4y" id="KM8-Rm-LXG"/>
                     </connections>
                 </viewController>
