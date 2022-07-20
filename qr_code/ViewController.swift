@@ -29,9 +29,11 @@ class ViewController: UIViewController {
     @IBOutlet var Background: UIView!
     @IBOutlet weak var linkField: UITextField!
     @IBOutlet weak var warningField: UITextField!
+    @IBAction func exitButton(_ sender: Any) {
+        exit(0)
+    }
     @IBAction func createButton(_ sender: Any) {
-        let str = linkField.text!
-        if str != "" {
+        if let str = linkField.text, !str.isEmpty {
             QRview.isHidden = false
             warningField.text = "Enjoy your qr-code!"
             warningField.textColor = .green
